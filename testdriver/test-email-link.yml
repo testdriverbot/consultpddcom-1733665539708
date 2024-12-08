@@ -1,0 +1,20 @@
+version: 4.1.29
+steps:
+  - prompt: Focus the browser window.
+    commands:
+      - command: focus-application
+        name: Google Chrome
+  - prompt: Click on the email address link.
+    commands:
+      - command: hover-text
+        text: frode@consultpdd.com
+        description: email address link in the header
+        action: click
+  - prompt: >-
+      Assert that it opens the default email client with the address filled.  #
+      Use the content of the file from the environment
+    commands:
+      - command: assert
+        expect: >-
+          the default email client is open with frode@consultpdd.com in the "To"
+          field
