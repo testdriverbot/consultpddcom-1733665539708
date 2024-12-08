@@ -1,0 +1,16 @@
+version: 4.1.29
+steps:
+  - prompt: Focus the browser window.
+    commands: []
+  - prompt: Click on the phone number link.
+    commands:
+      - command: hover-text
+        text: +47 913 61 423
+        description: phone number link in the top right corner
+        action: click
+  - prompt: >-
+      Assert that it prompts to dial the number or opens a dialing application. 
+      # Use the content of the file from the environment
+    commands:
+      - command: assert
+        expect: a dialing prompt or application window is open
